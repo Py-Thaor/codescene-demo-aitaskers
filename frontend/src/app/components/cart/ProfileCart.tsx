@@ -70,12 +70,9 @@ export const ProfileCart = () => {
         <ButtonProfileTag
           label="AI Chatbot"
         />
-        <ButtonProfileTag
-          label="Machine Learning"
-        />
       </div>
       <button
-        className="mt-[16px] px-[24px] h-[40px] bg-[#000065] hover:bg-[#000096] text-white block flex items-center justify-center rounded-[8px] w-full"
+        className="mt-[16px] px-[16px] h-[40px] bg-[#000065] hover:bg-[#000096] text-white block flex items-center justify-center rounded-[8px] w-full"
       >
         Xem thông tin chi tiết
       </button>

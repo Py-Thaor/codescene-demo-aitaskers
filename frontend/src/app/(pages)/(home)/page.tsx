@@ -75,10 +75,10 @@ export default function Home() {
       {/* Section 2 */}
       <div className="py-[60px]">
         <div className="contain">
-          <h2 className="font-[700] text-[28px] text-[#121212] text-center mb-[30px]">
+          <h2 className="font-[700] sm:text-[28px] text-[24px] text-[#121212] text-center mb-[30px]">
             Các chuyên gia AI hàng đầu
           </h2>
-          <div className="grid grid-cols-3 gap-x-[20px] gap-y-[20px]">
+          <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 lg:gap-x-[20px] gap-x-[10px] gap-y-[20px]">
             <ProfileCart />
             <ProfileCart />
             <ProfileCart />
