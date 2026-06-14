@@ -1,4 +1,5 @@
 import { ButtonTag } from "@/app/components/button/ButtonTag";
+import { ProfileCart } from "@/app/components/cart/ProfileCart";
 import { FaSearch } from "react-icons/fa";
 
 export default function Home() {
@@ -70,6 +71,27 @@ export default function Home() {
         </div>
       </div>
       {/* End Section 1 */}
+
+      {/* Section 2 */}
+      <div className="py-[60px]">
+        <div className="contain">
+          <h2 className="font-[700] text-[28px] text-[#121212] text-center mb-[30px]">
+            Các chuyên gia AI hàng đầu
+          </h2>
+          <div className="grid grid-cols-3 gap-x-[20px] gap-y-[20px]">
+            <ProfileCart />
+            <ProfileCart />
+            <ProfileCart />
+            <ProfileCart />
+            <ProfileCart />
+            <ProfileCart />
+            <ProfileCart />
+            <ProfileCart />
+            <ProfileCart />
+          </div>
+        </div>
+      </div>
+      {/* End Section 2 */}
     </>
   );
 }
