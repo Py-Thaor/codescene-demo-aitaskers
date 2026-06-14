@@ -13,6 +13,14 @@
   font-family: "Lexend", sans-serif;
 }
 
+input, select, button, textarea {
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+}
+
 /* Contain */
 .contain {
   width: 1184px;
@@ -168,3 +176,22 @@
   }
 }
 /* End Menu */
+
+/* Button Suggest */
+.button-suggest {
+  border-radius: 20px;
+  border: 1px solid #414042;
+  background-color: #121212;
+  height: 36px;
+  font-weight: 500;
+  font-size: 16px;
+  color: #DEDEDE;
+  padding: 0 22px;
+  cursor: pointer;
+}
+
+.button-suggest:hover, .button-suggest.active {
+  color: white;
+  background-color: #414042;
+}
+/* End Button Suggest */
