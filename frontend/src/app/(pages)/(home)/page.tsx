@@ -15,12 +15,12 @@ export default function Home() {
             </h1>
             <form 
               action=""
-              className="w-[100%] flex gap-[15px] mb-[30px]"
+              className="w-[100%] flex gap-x-[15px] mb-[30px] md:flex-nowrap flex-wrap gap-y-[12px]"
             >
               <select
                 name="adress" 
                 id=""
-                className="bg-[white] rounded-[4px] px-[20px] text-[#121212] font-[500] text-[16px] h-[56px] w-[240px]"
+                className="bg-[white] rounded-[4px] px-[20px] text-[#121212] font-[500] text-[16px] h-[56px] md:w-[240px] w-[100%]"
               >
                 <option value="ha-noi">Hà Nội</option>
                 <option value="ho-chi-minh">Hồ Chí Minh</option>
@@ -33,7 +33,7 @@ export default function Home() {
                 className="h-[56px] flex-1 bg-[white] rounded-[4px] h-[56px] px-[20px] font-[500] text-[16px] text-[#121212] placeholder:text-[#A8A8A8]"
               />
               <button
-                className="bg-[#0088FF] rounded-[4px] w-[240px] h-[56px] px-[20px] flex items-center gap-[10px] justify-center text-[white] font-[500] text-[16px]"
+                className="bg-[#0088FF] rounded-[4px] md:w-[240px] w-[100%] h-[56px] px-[20px] flex items-center gap-[10px] justify-center text-[white] font-[500] text-[16px]"
               >
                 <FaSearch
                   className="text-[20px]"
@@ -42,7 +42,7 @@ export default function Home() {
               </button>
             </form>
             <div
-              className="flex gap-[12px] items-center"
+              className="flex gap-x-[12px] gap-y-[15px] items-center flex-wrap"
             >
               <p
                 className="font-[500] text-[16px] text-[#DEDEDE]"
@@ -50,7 +50,7 @@ export default function Home() {
                 Mọi người đang tìm kiếm:
               </p>
               <div
-                className="flex gap-[10px]"
+                className="flex gap-[10px] flex-wrap"
               >
                 <ButtonTag
                   link="#"
