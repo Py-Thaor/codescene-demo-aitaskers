@@ -1,7 +1,8 @@
 import Link from "next/link"
 import { FaStar } from "react-icons/fa6"
 import { LuBriefcaseBusiness } from "react-icons/lu"
-import { ButtonProfileTag } from "../button/ButtonProfileTag"
+import { Tag1 } from "../tag/Tag1"
+
 
 export const ProfileCart = () => {
   return (
@@ -67,7 +68,7 @@ export const ProfileCart = () => {
       <div
         className="mt-[16px] flex gap-[8px]"
       >
-        <ButtonProfileTag
+        <Tag1
           label="AI Chatbot"
         />
       </div>
