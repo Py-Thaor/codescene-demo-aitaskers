@@ -58,6 +58,12 @@ export default function Page() {
                 </div>
               </div>
               {/* Hết Thông tin công việc */}
+
+              {/* Mô tả chi tiết công việc */}
+              <div className="bg-white rounded-[8px] border border-[#DEDEDE] p-[20px] mt-[20px]">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia doloremque voluptas, doloribus maxime, rerum quod reprehenderit atque recusandae itaque natus eos inventore ad sapiente voluptatum repellendus minus laborum ex iusto. Lorem ipsum dolor, sit amet consectetur adipisicing elit. A natus doloribus nemo ullam. Doloribus sed molestiae consequuntur voluptate enim nesciunt quisquam aliquid accusamus quam, sint voluptas, doloremque hic inventore eligendi. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora sit explicabo voluptates aspernatur sint tempore voluptatibus inventore nihil accusamus veritatis dolores pariatur magnam iusto, delectus error. Doloribus voluptates tempore voluptatum!
+              </div>
+              {/* Hết Mô tả chi tiết công việc */}
             </div>
             
             <div>
