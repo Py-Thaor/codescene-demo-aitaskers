@@ -8,7 +8,7 @@ export default function Page() {
           {/* Thông tin CV */}
           <div className="p-[20px] border border-[#DEDEDE] bg-white rounded-[8px]">
             <div className="flex flex-wrap gap-[20px] justify-between items-center mb-[20px]">
-              <div className="font-[400] text-[20px] text-black">
+              <div className="font-[700] text-[20px] text-black">
                 Thông tin CV
               </div>
               <Link href="/company-manager/cv/list" className="font-[400] text-[14px] text-[#0088FF] underline">
