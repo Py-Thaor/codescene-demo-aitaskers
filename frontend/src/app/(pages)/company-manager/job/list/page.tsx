@@ -11,7 +11,7 @@ export default function Page() {
             <h1 className="font-[700] sm:text-[28px] text-[24px] text-[#121212]">
               Quản lý công việc
             </h1>
-            <Link href="#" className="px-[20px] py-[8px] font-[400] text-[14px] text-white bg-[#0088FF] rounded-[4px] inline-block">
+            <Link href="/company-manager/job/create" className="px-[20px] py-[8px] font-[400] text-[14px] text-white bg-[#0088FF] rounded-[4px] inline-block">
               Thêm mới
             </Link>
           </div>
