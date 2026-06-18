@@ -1,6 +1,6 @@
 export const ButtonGroup1 = (props: {
   label: string,
-  className: string
+  className?: string
 }) => {
   const {label, className = ""} = props;
   return (
