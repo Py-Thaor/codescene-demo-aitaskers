@@ -34,23 +34,20 @@ public class UserService {
 
     @Transactional
     public String registerUser(RegisterRequest request) {
-        // Kiểm tra khớp mật khẩu
+
         if (request.getPassword() == null || !request.getPassword().equals(request.getConfirmPassword())) {
             return "Passwords do not match!";
         }
 
-        // Kiểm tra tồn tại
         if (userRepository.findByUsername(request.getUsername()).isPresent()) {
             return "Account already exists!";
         }
 
-        // Băm mật khẩu trước khi lưu vào DB
         String hashedPassword = passwordEncoder.encode(request.getPassword());
         
         User newUser = new User(request.getUsername(), hashedPassword, request.getRole().toUpperCase());
         User savedUser = userRepository.save(newUser);
 
-        // Lưu profile tương ứng
         if ("CLIENT".equals(savedUser.getRole())) {
             ClientProfile client = new ClientProfile();
             client.setCompanyName(request.getCompanyName());
