@@ -10,18 +10,26 @@ import com.example.demo.dto.JobRequest;
 import com.example.demo.entity.ClientProfile;
 import com.example.demo.entity.Job;
 import com.example.demo.entity.JobSkill;
+import com.example.demo.entity.Skill;
 import com.example.demo.repository.ClientProfileRepository;
 import com.example.demo.repository.JobRepository;
+import com.example.demo.repository.SkillRepository;
 
 @Service
 public class JobService {
 
     private final JobRepository jobRepository;
     private final ClientProfileRepository clientProfileRepository;
+    private final SkillRepository skillRepository;
 
-    public JobService(JobRepository jobRepository, ClientProfileRepository clientProfileRepository) {
+    public JobService(
+            JobRepository jobRepository,
+            ClientProfileRepository clientProfileRepository,
+            SkillRepository skillRepository
+    ) {
         this.jobRepository = jobRepository;
         this.clientProfileRepository = clientProfileRepository;
+        this.skillRepository = skillRepository;
     }
 
     public Job createJob(JobRequest request) {
@@ -42,7 +50,12 @@ public class JobService {
         job.setDeadline(request.getDeadline());
 
         for (String skillName : request.getJobSkills()) {
-            JobSkill jobSkill = new JobSkill(job, skillName);
+            String normalizedSkillName = skillName.trim();
+
+            Skill skill = skillRepository.findBySkillNameIgnoreCase(normalizedSkillName)
+                    .orElseGet(() -> skillRepository.save(new Skill(normalizedSkillName, null)));
+
+            JobSkill jobSkill = new JobSkill(job, skill);
             job.getJobSkills().add(jobSkill);
         }
 

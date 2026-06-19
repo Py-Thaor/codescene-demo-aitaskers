@@ -25,15 +25,16 @@ public class JobSkill {
     @JsonIgnore
     private Job job;
 
-    @Column(name = "skill_name", nullable = false)
-    private String skillName;
+    @ManyToOne
+    @JoinColumn(name = "skill_id", nullable = false)
+    private Skill skill;
 
     public JobSkill() {
     }
 
-    public JobSkill(Job job, String skillName) {
+    public JobSkill(Job job, Skill skill) {
         this.job = job;
-        this.skillName = skillName;
+        this.skill = skill;
     }
 
     public Long getJobSkillId() {
@@ -52,11 +53,19 @@ public class JobSkill {
         this.job = job;
     }
 
-    public String getSkillName() {
-        return skillName;
+    public Skill getSkill() {
+        return skill;
     }
 
-    public void setSkillName(String skillName) {
-        this.skillName = skillName;
+    public void setSkill(Skill skill) {
+        this.skill = skill;
+    }
+
+    public Long getSkillId() {
+        return skill != null ? skill.getSkillId() : null;
+    }
+
+    public String getSkillName() {
+        return skill != null ? skill.getSkillName() : null;
     }
 }
