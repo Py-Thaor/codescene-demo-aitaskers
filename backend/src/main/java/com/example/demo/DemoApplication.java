@@ -12,7 +12,6 @@ public class DemoApplication {
         SpringApplication.run(DemoApplication.class, args);
     }
 
-    // Khai báo Bean ở đây để Spring quản lý và tiêm vào UserService
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
