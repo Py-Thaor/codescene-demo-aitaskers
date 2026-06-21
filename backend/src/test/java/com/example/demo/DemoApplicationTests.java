@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DemoApplicationTests { // Tên class phải là DemoApplicationTests
+class DemoApplicationTests {
 
     @Test
     void contextLoads() {

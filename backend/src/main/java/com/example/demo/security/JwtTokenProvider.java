@@ -7,9 +7,8 @@ import java.util.Date;
 @SuppressWarnings("deprecation")
 @Component
 public class JwtTokenProvider {
-    private final String SECRET_KEY = "your-very-secure-secret-key-that-must-be-long-enough"; // Thay bằng key thật
-    private final long EXPIRATION = 86400000L; // 1 ngày
-
+    private final String SECRET_KEY = "your-very-secure-secret-key-that-must-be-long-enough";
+    private final long EXPIRATION = 86400000L;
     public String generateToken(String username) {
         return Jwts.builder()
                 .setSubject(username)
@@ -30,7 +29,6 @@ public boolean validateToken(String token) {
         Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(token);
         return true;
     } catch (Exception e) {
-        // Log lỗi: Token hết hạn hoặc sai chữ ký
         return false;
     }
 }

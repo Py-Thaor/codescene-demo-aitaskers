@@ -18,9 +18,6 @@ public class UserService {
     @Autowired private ExpertProfileRepository expertProfileRepository;
     @Autowired private BCryptPasswordEncoder passwordEncoder;
 
-    /**
-     * Dùng cho việc đăng nhập: Trả về User nếu thông tin đúng
-     */
     public Optional<User> authenticate(String username, String password) {
         return userRepository.findByUsername(username)
                 .filter(user -> passwordEncoder.matches(password, user.getPassword()));
@@ -38,14 +35,12 @@ public class UserService {
 
         String hashedPassword = passwordEncoder.encode(request.getPassword());
         
-        // Tạo User mới
         User newUser = new User();
         newUser.setUsername(request.getUsername());
         newUser.setPassword(hashedPassword);
         newUser.setRole(request.getRole().toUpperCase());
         User savedUser = userRepository.save(newUser);
 
-        // Lưu profile tương ứng
         if ("CLIENT".equals(savedUser.getRole())) {
             ClientProfile client = new ClientProfile();
             client.setCompanyName(request.getCompanyName());

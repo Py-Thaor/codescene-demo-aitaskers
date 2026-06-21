@@ -26,12 +26,11 @@ public class JwtService {
         this.expMinutes = expMinutes;
     }
 
-    // Sinh token với expire time
     public String generateToken(User user) {
         Instant now = Instant.now();
         return Jwts.builder()
                 .setSubject(user.getUsername())
-                .claim("userId", user.getId()) // (Nguyen Sinh): Add userId claim
+                .claim("userId", user.getId())
                 .claim("role", user.getRole())
                 .setIssuedAt(Date.from(now))
                 .setExpiration(Date.from(now.plusSeconds(expMinutes * 60)))
@@ -39,7 +38,6 @@ public class JwtService {
                 .compact();
     }
 
-    // Trích xuất username (email)
     public String extractUsername(String token) {
         return Jwts.parserBuilder()
             .setSigningKey(key)
@@ -49,7 +47,6 @@ public class JwtService {
             .getSubject();
     }
 
-    // Trích xuất expire
     public Date extractExpiration(String token) {
         return Jwts.parserBuilder()
                 .setSigningKey(key)
@@ -59,7 +56,6 @@ public class JwtService {
                 .getExpiration();
     }
 
-    // Kiểm tra token hợp lệ
     public boolean isTokenValid(String token, UserDetails userDetails) {
         final String username = extractUsername(token);
         return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
