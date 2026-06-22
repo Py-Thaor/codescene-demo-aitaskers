@@ -1,8 +1,48 @@
+"use client"
+
 import { JobCard2 } from "@/app/components/card/JobCard2";
 import { Select1 } from "@/app/components/select/Select1";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function Page() {
+  interface Job {
+    id: number;
+    title: string;
+    description: string;
+    positionRequirement: string;
+    requiredTechnologies: string;
+    minExperienceYears: number;
+    budgetMin: number;
+    budgetMax: number;
+    deadline: string;
+    jobSkills: {
+      jobSkillId: number;
+      skillName: string;
+      skillId: number;
+      skill?: {}
+    }[];
+  }
+
+  const [jobs, setJobs] = useState<Job[]>([]);
+
+  useEffect(() => {
+    fetchJobs();
+  }, []);
+
+  const fetchJobs = async () => {
+    try {
+      const response = await fetch(
+        "http://localhost:8081/jobs"
+      );
+
+      const data = await response.json();
+
+      setJobs(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <>
       <div className="py-[60px]">
@@ -16,14 +56,19 @@ export default function Page() {
             </Link>
           </div>
           <div className="grid lg:grid-cols-3 sm:grid-cols-2 gap-[20px]">
-            <JobCard2 />
-            <JobCard2 />
-            <JobCard2 />
-            <JobCard2 />
-            <JobCard2 />
-            <JobCard2 />
-            <JobCard2 />
-            <JobCard2 />
+            {jobs.map((job, index) => (
+              <JobCard2
+                key={index}
+                id={job.id}
+                title={job.title}
+                positionRequirement={job.positionRequirement}
+                budgetMin={job.budgetMin}
+                budgetMax={job.budgetMax}
+                experience={job.minExperienceYears}
+                technologies={job.jobSkills}
+                deadline={job.deadline}
+              />
+            ))}
           </div>
           <Select1 totalPage={4} />
         </div>
