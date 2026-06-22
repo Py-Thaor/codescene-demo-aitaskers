@@ -4,7 +4,7 @@ export const BoxGroup1 = (props: {
   id?: string,
   type?: string,
   className?: string,
-  values: string,
+  values: string | number,
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 }) => {
   const {label, name, id = name, type = "text", className = "", values, onChange,} = props;
